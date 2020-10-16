@@ -1,3 +1,5 @@
 inquirer
 yaspin
 pandas
+boto3
+requests
