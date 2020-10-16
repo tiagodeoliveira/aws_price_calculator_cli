@@ -1,0 +1,4 @@
+PyInquirer
+inquirer
+yaspin
+pandas
