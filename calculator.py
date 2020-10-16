@@ -1,15 +1,13 @@
 from __future__ import print_function, unicode_literals
-import inquirer
 from yaspin import yaspin
 
-import pprint
+import inquirer
 import requests 
 import botocore.session
 import pandas as pd
 
 session = botocore.session.get_session()
 regions = session.get_available_regions('ec2')
-pp = pprint.PrettyPrinter(indent=4)
 
 PRICING_API='https://pricing.us-east-1.amazonaws.com'
 OFFER_INDEX='/offers/v1.0/aws/index.json'
@@ -21,8 +19,8 @@ def load_offers():
     with yaspin(text='Querying ' + PRICING_API + OFFER_INDEX, color="yellow") as spinner:
         try:
             index_response = requests.get(PRICING_API + OFFER_INDEX)
-            return index_response.json()['offers']
             spinner.ok(SPINNER_OK)
+            return index_response.json()['offers']
         except:
             spinner.fail(SPINNER_FAIL)
             return None
