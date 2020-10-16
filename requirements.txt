@@ -1,4 +1,3 @@
-PyInquirer
 inquirer
 yaspin
 pandas
